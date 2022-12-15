@@ -4,6 +4,7 @@ import CardList from './Components/CardList';
 import SearchBar from './Components/SearchBar';
 import { Component } from 'react'; 
 import Scroll from './Components/Scroll';
+import CopyRight from './Components/Date';
 
 class App extends Component {
   constructor(){
@@ -32,6 +33,7 @@ class App extends Component {
       <Scroll>
         <CardList robots={filterRobots}/>
       </Scroll>
+      <CopyRight/>
     </div>
     )
   }
