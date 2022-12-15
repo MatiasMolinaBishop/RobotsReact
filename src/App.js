@@ -2,7 +2,8 @@ import './App.css';
 import { robots } from './robots';
 import CardList from './Components/CardList';
 import SearchBar from './Components/SearchBar';
-import { Component } from 'react';
+import { Component } from 'react'; 
+import Scroll from './Components/Scroll';
 
 class App extends Component {
   constructor(){
@@ -16,24 +17,23 @@ class App extends Component {
   onSearchChange = (event) => {
 
     this.setState({searchfield:event.target.value})
-    
-    // const filterRobots = this.state.robots.filter(robots =>{
-    //   return robots.name.toLocaleLowerCase().includes(this.state.searchfield.toLocaleLowerCase())
-    // })
+  
   }
 
   render (){
     const filterRobots = this.state.robots.filter(robots =>{
       return robots.name.toLocaleLowerCase().includes(this.state.searchfield.toLocaleLowerCase())
     })
+    
     return(
       <div className="App">
       <h1>My Robots Army</h1>
       <SearchBar searchChange={this.onSearchChange}/>
-      <CardList robots={filterRobots}/>
+      <Scroll>
+        <CardList robots={filterRobots}/>
+      </Scroll>
     </div>
     )
-    
   }
 }
 
